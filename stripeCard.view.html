@@ -1,0 +1,53 @@
+<div class="container mx-auto md:w-2/3 py-4">
+
+    <div class="flex flex-wrap ">
+
+        <div class="w-full px-4 md:px-0">
+            <h2 class="text-4xl text-teal-700">Stripe-Card</h2>
+            <code class="bg-gray-800 text-white p-2">&ltstripe-card :card-holder="name" @card-token="cardToken = $event">&lt/stripe-card></code>
+            <demo-container class="my-4 md:w-2/3">
+                see demo.js
+            </demo-container>
+            <p class="my-4 text-gray-700">
+                Accepts credit/debit card inputs, verifies input & emits a one-time token-id to be used for on the server.
+                <br>This element requires server-side passed in values for "stripePublicKey":
+            </p>
+            <code class="bg-gray-800 text-white p-2">...<br>->vueComponent('stripeCard',['stripePublicKey' => 'pk_test_123456787'])<br>-> ...</code>
+            <p class="my-4 text-gray-700">
+                Also, make sure to include the stripe.js script either in your frame or on the route-component.
+            </p>
+            <table class="table-auto border border-collapse">
+                <tr>
+                    <th class="px-4 py-2">Prop</th>
+                    <th class="px-4 py-2">Type</th>
+                    <th class="px-4 py-2">Function</th>
+                </tr>
+                <tr>
+                    <td class="p-2 border">cardHolder</td>
+                    <td class="p-2 border">String (cardholder full name)</td>
+                    <td class="p-2 border">Optional, but recommended</td>
+                </tr>
+                <tr>
+                    <td class="p-2 border">country</td>
+                    <td class="p-2 border">String (2char representation e.g. 'US')</td>
+                    <td class="p-2 border">Optional, but recommended</td>
+                </tr>
+                <tr>
+                    <td class="p-2 border">currency</td>
+                    <td class="p-2 border">String (e.g. 'usd')</td>
+                    <td class="p-2 border">Note: this is only necessary for Stripe Connect and will otherwise be ignored</td>
+                </tr>
+            </table>
+            <p class="my-4 text-gray-700">
+                This element can be (and should be) placed within a component form. Property bindings are two-way.
+                We suggest passing in the full cardholder name as well as the country.
+                <a href="https://stripe.com/radar">Stripe RADAR</a> can then better prevent fraudulent transactions.
+            </p>
+            <p class="my-4 text-gray-700">
+                About security: Credit card information is never sent to your server with this approach.
+                The provided token can be used to request a server-side charge against the payment method using the Stripe model.
+            </p>
+        </div>
+    </div>
+
+</div>

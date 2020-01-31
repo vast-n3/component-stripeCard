@@ -1,0 +1,11 @@
+<div class="input">
+    <label>
+        Card number
+    </label>
+    <div id="vastn3-stripe-card-input" class="w-full">
+        <input name="placeholder" placeholder="loading stripe..." type="text">
+    </div>
+    <div class="mt-4 p-2 bg-danger rounded border-r border-red-900 text-white" id="vastn3-stripe-card-errors" role="alert" v-if="stripeError.length>0">
+        {{stripeError}}
+    </div>
+</div>
